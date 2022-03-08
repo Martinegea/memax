@@ -76,5 +76,3 @@ var nombre = "martin";
          let resultado = infresarNumero * i;
          console.log(infresarNumero + " X " + i + " = " + resultado);
  }
-
- console
