@@ -1,17 +1,32 @@
-let nombreProducto=document.getElementById("producto");
+const Clickbutton = document.querySelectorAll(".button")
+let carrito = []
 
-let cantidadProducto=document.getElementById("cantidad");
+Clickbutton.forEach(btn => {
+        btn.addEventListener("click", addToCarritoItem)
+})
 
-let precioProducto=document.getElementById("precio");
+function addToCarritoItem(e){
+        const button = e.target
+        const item = button.closest(".card")
+        const itemTitle = item.querySelector(".card-title").textContent;
+        const itemPrice = item.querySelector(".precio")
+        const itemImg = item.querySelector(".card-img-top").src;
 
-let tarjeta=document.getElementById("tarjetas")
+        const newItem = {
+                title: itemTitle,
+                precio: itemPrice,
+                img: itemImg,
+                cantidad: 1
+        }
 
-let view=document.getElementById("salida");
+        addItemCarrito(newItem)
+}
 
-function capturar(){
-        view.innerHTML=nombreProducto.value+"<br>"+cantidadProducto.value+"<br>"+precioProducto.value+"<br>"+tarjeta.value;
+function addItemCarrito(newItem){
 
-        let producto=[nombreProducto.value, cantidadProducto.value,precioProducto.value,tarjeta.value];
-
-        console.log(producto);
+        carrito.push(newItem)
+        renderCarrito()
+}
+function renderCarrito(){
+        console.log(carrito)
 }
