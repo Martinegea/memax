@@ -137,3 +137,8 @@ window.onload = function(){
     renderCarrito()
   }
 }
+
+
+function mostrar(){
+  swal("Error","Trabajando para solucionarlo","error");
+}
